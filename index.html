@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>mahrix mini</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="game-wrapper">
+
+    <!-- score display -->
+    <div class="score-board">
+      <span>score: <span id="score">0</span></span>
+      <span class="divider">|</span>
+      <span>best: <span id="best">0</span></span>
+    </div>
+
+    <!-- game area -->
+    <div id="game">
+
+      <!-- player -->
+      <div id="player" class="lane-1"></div>
+
+      <!-- obstacles container -->
+      <div id="obstacles"></div>
+
+      <!-- start screen -->
+      <div id="start-overlay" class="overlay">
+        <p>tap or press any key to start</p>
+      </div>
+
+      <!-- game over screen -->
+      <div id="gameover-overlay" class="overlay hidden">
+        <p>game over</p>
+        <button id="restart-btn">restart</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
