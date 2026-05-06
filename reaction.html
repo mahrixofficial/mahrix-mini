@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reaction</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+
+  <div class="score-board">
+    <span id="time">0 ms</span>
+    <span class="divider">|</span>
+    <span id="best">0 ms</span>
+  </div>
+
+  <div id="game">
+
+    <!-- Lights -->
+    <div class="lights">
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+      <div class="light"></div>
+    </div>
+
+    <!-- Status -->
+    <div id="status-text">Tap to Start</div>
+
+    <!-- Flash -->
+    <div id="flash" class="flash"></div>
+
+    <!-- Game Over -->
+    <div id="gameover-overlay" class="overlay hidden">
+      <p id="result-text"></p>
+      <button id="restart-btn">Retry</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="core.js"></script>
+<script src="reaction.js"></script>
+
+</body>
+</html>

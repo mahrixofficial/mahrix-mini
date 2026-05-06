@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Timing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+
+  <div class="score-board">
+    <span id="score">0</span>
+    <span class="divider">|</span>
+    <span id="best">0</span>
+  </div>
+
+  <div id="game">
+
+    <!-- Moving bar -->
+    <div id="bar"></div>
+
+    <!-- Target -->
+    <div id="target"></div>
+
+    <!-- Flash -->
+    <div id="flash" class="flash"></div>
+
+    <!-- Start -->
+    <div id="start-overlay" class="overlay">
+      <p>Tap or Press to Start</p>
+    </div>
+
+    <!-- Game Over -->
+    <div id="gameover-overlay" class="overlay hidden">
+      <p>Missed</p>
+      <button id="restart-btn">Restart</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="core.js"></script>
+<script src="timing.js"></script>
+
+</body>
+</html>

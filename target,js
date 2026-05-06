@@ -1,0 +1,110 @@
+const game = document.getElementById("game");
+const target = document.getElementById("target");
+
+const scoreEl = document.getElementById("score");
+const bestEl = document.getElementById("best");
+
+const startOverlay = document.getElementById("start-overlay");
+const overlay = document.getElementById("gameover-overlay");
+const restartBtn = document.getElementById("restart-btn");
+
+const flashEl = document.getElementById("flash");
+
+let score = 0;
+let best = getBest("mahrix_target_best");
+
+let gameRunning = false;
+let timeout;
+
+bestEl.textContent = best;
+
+/* ======================
+   GAME FLOW
+====================== */
+
+function startGame() {
+  if (gameRunning) return;
+
+  gameRunning = true;
+  score = 0;
+  scoreEl.textContent = score;
+
+  startOverlay.classList.add("hidden");
+  overlay.classList.add("hidden");
+
+  spawnTarget();
+}
+
+function spawnTarget() {
+  if (!gameRunning) return;
+
+  const gameRect = game.getBoundingClientRect();
+
+  const x = Math.random() * (gameRect.width - 60);
+  const y = Math.random() * (gameRect.height - 60);
+
+  target.style.left = x + "px";
+  target.style.top = y + "px";
+  target.style.display = "block";
+
+  // time to hit (gets harder)
+  const delay = Math.max(400, 1000 - score * 30);
+
+  timeout = setTimeout(() => {
+    gameOver();
+  }, delay);
+}
+
+function hitTarget() {
+  if (!gameRunning) {
+    startGame();
+    return;
+  }
+
+  clearTimeout(timeout);
+
+  score++;
+  scoreEl.textContent = score;
+
+  pop(scoreEl);
+  flash(flashEl, "success");
+
+  spawnTarget();
+}
+
+function gameOver() {
+  gameRunning = false;
+
+  target.style.display = "none";
+
+  flash(flashEl, "fail");
+  shake(game);
+
+  if (score > best) {
+    best = score;
+    setBest("mahrix_target_best", best);
+    bestEl.textContent = best;
+  }
+
+  overlay.classList.remove("hidden");
+}
+
+function resetGame() {
+  startGame();
+}
+
+/* ======================
+   INPUTS
+====================== */
+
+target.addEventListener("click", hitTarget);
+
+game.addEventListener("click", (e) => {
+  if (!gameRunning) startGame();
+});
+
+game.addEventListener("touchstart", (e) => {
+  if (!gameRunning) startGame();
+});
+
+restartBtn.addEventListener("click", resetGame);

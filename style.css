@@ -102,6 +102,10 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  pointer-events: none;
+  button {
+  pointer-events: auto;
+}
 }
 
 .overlay p {
@@ -134,4 +138,160 @@ button {
     width: 35px;
     height: 35px;
   }
+}
+
+.menu {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.menu h1 {
+  font-size: 28px;
+  opacity: 0.9;
+}
+
+.game-btn {
+  padding: 14px 24px;
+  background: #151522;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.game-btn:hover {
+  background: #1f1f30;
+}
+
+/* TIMING GAME */
+
+#bar {
+  position: absolute;
+  bottom: 40%;
+  width: 60px;
+  height: 20px;
+  background: #00ffcc;
+  border-radius: 6px;
+  left: 0%;
+  transform: translateX(-50%);
+}
+
+#target {
+  position: absolute;
+  bottom: 40%;
+  width: 80px;
+  height: 24px;
+  background: rgba(255,255,255,0.1);
+  border: 2px solid #ffffff30;
+  border-radius: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* REACTION GAME */
+
+.lights {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  top: 30%;
+  width: 100%;
+}
+
+.light {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #222;
+}
+
+.light.active {
+  background: red;
+}
+
+.light.go {
+  background: #00ffcc;
+}
+
+#status-text {
+  position: absolute;
+  bottom: 30%;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+/* ===== JUICE SYSTEM ===== */
+
+/* screen shake */
+.shake {
+  animation: shake 0.25s;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-5px, 5px); }
+  50% { transform: translate(5px, -5px); }
+  75% { transform: translate(-3px, 3px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* flash overlay */
+.flash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.flash.show {
+  opacity: 1;
+  transition: opacity 0.1s;
+}
+
+/* success + fail colors */
+.flash.success {
+  background: rgba(0, 255, 200, 0.15);
+}
+
+.flash.fail {
+  background: rgba(255, 60, 60, 0.2);
+}
+
+/* pop animation */
+.pop {
+  animation: pop 0.15s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+#word {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+/* TARGET GAME */
+
+#target {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #00ffcc;
+  border-radius: 50%;
+  display: none;
 }

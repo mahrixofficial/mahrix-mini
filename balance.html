@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Balance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+
+  <div class="score-board">
+    <span id="score">0</span>
+    <span class="divider">|</span>
+    <span id="best">0</span>
+  </div>
+
+  <div id="game">
+
+    <div id="bar-container">
+      <div id="bar"></div>
+    </div>
+
+    <div id="start-overlay" class="overlay">
+      <p>Hold to Balance</p>
+    </div>
+
+    <div id="gameover-overlay" class="overlay hidden">
+      <p>Fell</p>
+      <button id="restart-btn">Restart</button>
+    </div>
+
+    <div id="flash" class="flash"></div>
+
+  </div>
+
+</div>
+
+<script src="core.js"></script>
+<script src="balance.js"></script>
+</body>
+</html>

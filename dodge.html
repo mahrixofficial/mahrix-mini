@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dodge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="game-wrapper">
+
+  <div class="score-board">
+    <span id="score">0</span>
+    <span class="divider">|</span>
+    <span id="best">0</span>
+  </div>
+
+  <div id="game">
+
+    <div id="player" class="lane-1"></div>
+    <div id="obstacles"></div>
+
+    <div id="start-overlay" class="overlay">
+      <p>Tap or Press to Start</p>
+    </div>
+
+    <div id="gameover-overlay" class="overlay hidden">
+      <p>Game Over</p>
+      <button id="restart-btn">Restart</button>
+    </div>
+
+    <!-- JUICE FLASH -->
+    <div id="flash" class="flash"></div>
+
+  </div>
+
+</div>
+
+<script src="core.js"></script>
+<script src="dodge.js"></script>
+</body>
+</html>
